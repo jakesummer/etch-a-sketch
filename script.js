@@ -30,10 +30,8 @@ function createGrid(squaresPerSide){
             square.style.backgroundColor = DEFAULT_COLOR;
 
             square.addEventListener("mouseover", (e) => {
-                if (e.target.style.backgroundColor === DEFAULT_COLOR) {
-                    isBlackAndWhite ? e.target.style.backgroundColor = WHITE_COLOR:
-                    e.target.style.backgroundColor = getRandomColor();
-                }
+                isBlackAndWhite ? e.target.style.backgroundColor = WHITE_COLOR:
+                e.target.style.backgroundColor = getRandomColor();
             })
 
             gridContainer.appendChild(square);
