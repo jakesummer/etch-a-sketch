@@ -1,3 +1,5 @@
+const DEFAULT_COLOR =  "rgb(37, 37, 37)";
+
 let gridContainer = document.querySelector("#grid-container");
 let changeGridSizeButton = document.querySelector("#change-size");
 
@@ -11,10 +13,10 @@ function createGrid(squaresPerSide){
             let squareSize = `calc(100% / ${squaresPerSide})`;
             square.style.cssText = `width: ${squareSize}; height: ${squareSize}; `;
 
-            square.style.backgroundColor = "black";
+            square.style.backgroundColor = DEFAULT_COLOR;
 
             square.addEventListener("mouseover", (e) => {
-                e.target.style.backgroundColor === "black" ?
+                e.target.style.backgroundColor === DEFAULT_COLOR ?
                 e.target.style.backgroundColor = getRandomColor():
                 "";
             })
