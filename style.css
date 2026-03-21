@@ -39,6 +39,12 @@ h1 {
     box-shadow: 0px 10px 15px 8px #000000;
 }
 
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
 button {
     background-color: #FF9B51;
     color: #25343F;

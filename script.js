@@ -1,7 +1,21 @@
 const DEFAULT_COLOR =  "rgb(37, 37, 37)";
+const WHITE_COLOR = "#EAEFEF";
 
 let gridContainer = document.querySelector("#grid-container");
 let changeGridSizeButton = document.querySelector("#change-size");
+let changeColorButton = document.querySelector("#change-color");
+
+let isBlackAndWhite = false;
+
+changeColorButton.addEventListener("click", () => {
+    if (isBlackAndWhite) {
+        isBlackAndWhite = false
+        changeColorButton.textContent = "Black and White";
+    } else {
+        isBlackAndWhite = true;
+        changeColorButton.textContent = "Rainbow";
+    }
+})
 
 changeGridSizeButton.addEventListener("click", changeGridSize)
 
@@ -16,9 +30,10 @@ function createGrid(squaresPerSide){
             square.style.backgroundColor = DEFAULT_COLOR;
 
             square.addEventListener("mouseover", (e) => {
-                e.target.style.backgroundColor === DEFAULT_COLOR ?
-                e.target.style.backgroundColor = getRandomColor():
-                "";
+                if (e.target.style.backgroundColor === DEFAULT_COLOR) {
+                    isBlackAndWhite ? e.target.style.backgroundColor = WHITE_COLOR:
+                    e.target.style.backgroundColor = getRandomColor();
+                }
             })
 
             gridContainer.appendChild(square);
