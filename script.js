@@ -4,6 +4,7 @@ const WHITE_COLOR = "#EAEFEF";
 let gridContainer = document.querySelector("#grid-container");
 let changeGridSizeButton = document.querySelector("#change-size");
 let changeColorButton = document.querySelector("#change-color");
+let clearBoardButton = document.querySelector("#clear-board");
 
 let isBlackAndWhite = false;
 
@@ -17,9 +18,15 @@ changeColorButton.addEventListener("click", () => {
     }
 })
 
-changeGridSizeButton.addEventListener("click", changeGridSize)
+clearBoardButton.addEventListener("click", () => {
+    for (const square of gridContainer.children) {
+        square.style.backgroundColor = DEFAULT_COLOR;
+    }
+})
 
-function createGrid(squaresPerSide){
+changeGridSizeButton.addEventListener("click", changeGridSize);
+
+function createGrid(squaresPerSide) {
     for (let i = 0; i < squaresPerSide; i++) {
         for (let j = 0; j < squaresPerSide; j++) {
             let square = document.createElement("div");
